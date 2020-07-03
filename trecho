@@ -1,0 +1,119 @@
+===
+
+package programa;
+
+public class Data {
+
+    private Integer day;
+
+    private Integer month;
+
+    private Integer year;
+
+    public Data(Integer day, Integer month, Integer year) {
+
+        if (month < 1 && month > 12) {
+
+            System.out.println("Informe um mes valido.");
+
+        }
+
+        if (day < 1 && day > 31) {
+
+            System.out.println("Tem que ser de 1 a 31!!!");
+
+        }
+
+        if (year > 2020) {
+
+            System.out.println("Ano invalido");
+
+        }
+
+        if (validarData(day, month, year)) {
+
+            this.day = day;
+
+            this.month = month;
+
+            this.year = year;
+
+        };
+
+    }
+
+    public boolean validarData(Integer dayV, Integer monthV, Integer yearV) {
+
+        boolean diaCerto = false;
+
+        if (monthV == 4 || monthV == 6 || monthV == 9 || monthV == 11) {
+
+            if (dayV <= 30) {
+
+                diaCerto = true;
+
+            } else {
+
+                diaCerto = false;
+
+            }
+
+        }
+
+        if (monthV == 1 || monthV == 3 || monthV == 5 || monthV == 7 || monthV == 8 || monthV == 10 || monthV == 12) {
+
+            if (dayV <= 31) {
+
+                diaCerto = true;
+
+            } else {
+
+                diaCerto = false;
+
+            }
+
+        }
+
+        if (month == 2) {
+
+            if (yearV % 4 == 0) {
+
+                if (day <= 29) {
+
+                    diaCerto = true;
+
+                } else {
+
+                    diaCerto = false;
+
+                }
+
+            } else {
+
+                if (day <= 28) {
+
+                    diaCerto = true;
+
+                } else {
+
+                    diaCerto = false;
+
+                }
+
+            }
+
+        }
+
+        if (diaCerto) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+
+}
